@@ -1,0 +1,4 @@
+com\thriftiess\model\Product.class
+com\thriftiess\repository\ProductRepository.class
+com\thriftiess\controller\ProductController.class
+com\thriftiess\ThriftiessApplication.class

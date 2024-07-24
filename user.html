@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login Profile</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <p>WELCOME TO THRIFTIESS, HAPPY THRIFTING!!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Thriftiess</a></li>
+                <li><a href="new.html">New</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="sellanddonate.html">Sell And Donate</a></li>
+                <li><a href="user.html"><img src="images/user.jpg" alt="User Icon"></a></li>
+                <li><a href="cart.html"><img src="images/cart.jpg" alt="Cart Icon"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="form-container">
+            <h1>Create Your Profile</h1>
+            <form action="user_profile_handler.html" method="POST">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" pattern="[a-z][a-z0-9_.]*" required>
+                    <small>Starts with lowercase letters; can include letters, numbers, _ and .</small>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" minlength="7" maxlength="7" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact Number:</label>
+                    <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="button">Login</button>
+                </div>
+            </form>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="images/userpage.jpg" alt="Thrifting Image" style="max-width: 67%; height: auto;">
+        </div>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <div class="footer-column">
+                <h2>T SHOP</h2>
+                <p>mrudulaa31@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Mrudulaa031" target="_blank"><img src="images/git.png" alt="GitHub"></a>
+                    <a href="https://linkedin.com/in/mrudulasachindeshpande" target="_blank"><img src="images/Li.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="new.html">New</a></li>
+                    <li><a href="#">Women</a></li>
+                    <li><a href="#">Men</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Store</h3>
+                <ul>
+                    <li><a href="about-thrifting">About Us</a></li>
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Terms & Conditions</h3>
+                <ul>
+                    <li><a href="#">Store Policy</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 by Powered and secured by <a href="https://wix.com">Wix</a></p>
+        </div>
+    </footer>
+</body>
+</html>

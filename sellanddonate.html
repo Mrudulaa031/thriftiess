@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell/Donate - Thriftiess</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .price-input {
+            display: none;
+        }
+        .price-input input {
+            width: 50%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+            -moz-appearance: textfield;
+        }
+        .price-input input::-webkit-outer-spin-button,
+        .price-input input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <script>
+        function togglePriceInput() {
+            const sellRadio = document.getElementById('sell');
+            const priceInput = document.querySelector('.price-input');
+            if (sellRadio.checked) {
+                priceInput.style.display = 'inline-block';
+            } else {
+                priceInput.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="header-top">
+            <p>WELCOME TO THRIFTIESS, HAPPY THRIFTING!!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" style="color: white;">Thriftiess</a></li>
+                <li><a href="new.html" style="color: white;">New</a></li>
+                <li><a href="women.html" style="color: white;">Women</a></li>
+                <li><a href="men.html" style="color: white;">Men</a></li>
+                <li><a href="sell-donate.html">Sell/Donate</a></li>
+                <li><a href="user.html"><img src="images/user.jpg" alt="User Icon"></a></li>
+                <li><a href="cart.html"><img src="images/cart.jpg" alt="Cart Icon"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 style="text-align: center;">Sell or Donate Your Clothes</h1>
+        <div class="form-container">
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="size">Size Available :</label>
+                    <select id="size" name="size" required>
+                        <option value="XS">XS</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="image">Upload Image of your item <br> (Note that the image should be clear, and the item should be clearly visible.):</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label>Type:</label>
+                    <label>
+                        <input type="radio" id="sell" name="type" value="sell" onclick="togglePriceInput()" required> Sell
+                    </label>
+                    <label>
+                        <input type="radio" id="donate" name="type" value="donate" onclick="togglePriceInput()" required> Donate
+                    </label>
+                </div>
+                <div class="form-group price-input">
+                    <label for="price">Approximate Price (₹):</label>
+                    <input type="text" id="price" name="price">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+       
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="images/end.jpg" alt="Thrifting Image" style="max-width: 67%; height: auto;">
+        </div>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <div class="footer-column">
+                <h2>T SHOP</h2>
+                <p>mrudulaa31@gmail.com</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Mrudulaa031" target="_blank"><img src="images/git.png" alt="GitHub"></a>
+                    <a href="https://linkedin.com/in/mrudulasachindeshpande" target="_blank"><img src="images/Li.png" alt="LinkedIn"></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="new.html">New</a></li>
+                    <li><a href="women.html">Women</a></li>
+                    <li><a href="men.html">Men</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Our Store</h3>
+                <ul>
+                    <li><a href="about-thrifting">About Us</a></li>
+                    <li><a href="#">Subscribe</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Terms & Conditions</h3>
+                <ul>
+                    <li><a href="#">Store Policy</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 by Powered and secured by <a href="https://wix.com">Wix</a></p>
+        </div>
+    </footer>
+    <script>
+        document.querySelectorAll('input[name="type"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelector('.price-input').style.display = this.value === 'sell' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

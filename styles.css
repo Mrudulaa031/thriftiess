@@ -1,0 +1,392 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #6a1b9a;
+    color: white;
+}
+
+.header-top {
+    text-align: center;
+    padding: 0.5px;
+    background-color: #4a148c;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    background-color: #6a1b9a;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+/* Adjust size of user and cart icons */
+nav ul li a img {
+    width: 24px; /* Adjust width as needed */
+    height: 24px; /* Adjust height as needed */
+}
+
+.hero {
+    background-color: #f3e5f5;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    color: #6a1b9a;
+    font-size: 3em;
+}
+
+.hero p {
+    font-size: 1.5em;
+    color: #6a1b9a;
+}
+
+.hero button {
+    background-color: #8e24aa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #6a1b9a;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of items to next line */
+    justify-content: center; /* Centers the items */
+    padding: 20px;
+}
+
+.product {
+    margin: 10px;
+    text-align: center; /* Centers text and images within product div */
+    flex: 1 1 calc(33.333% - 20px); /* Creates a 3x2 grid with spacing */
+    max-width: calc(33.333% - 20px); /* Limits width to ensure proper alignment */
+}
+.product a {
+    text-decoration: none; /* Remove underline from links */
+}
+.product a:visited {
+    color: black; /* Ensure visited links are black */
+}
+
+
+.product img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+.product p {
+    color: black; /* Set text color to black */
+}
+
+.about-thrifting {
+    padding: 20px;
+    background-color: #f3e5f5;
+    color: #4a148c;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+}
+.about-thrifting h3 {
+    font-size: 50px;
+    text-align: center;
+}
+
+footer {
+    background-color: #6a1b9a;
+    color: white;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+    background-color: white;
+    color: black;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.footer-column h2, .footer-column h3 {
+    color: #000;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin: 10px 0;
+}
+
+/* Remove underline and color for all links */
+/* Retain color for top bar links and remove underline */
+.footer-column ul li a,
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Ensure top bar links are white */
+}
+/* Retain color for top bar links and remove underline */
+.footer-column ul li a,
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Ensure top bar links are white */
+}
+/* Retain color for top bar links and remove underline */
+.footer-column ul li a,
+nav ul li a {
+    text-decoration: none;
+    color: white; /* Ensure top bar links are white */
+}
+
+
+.footer-column ul li a:visited,
+nav ul li a:visited {
+    color: white; /* Ensure visited top bar links are white */
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 5px;
+}
+
+.social-icons a img {
+    width: 24px; /* Adjust width as needed */
+    height: 24px; /* Adjust height as needed */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #6a1b9a;
+    color: white;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        margin: 10px 0;
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .product img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .about-thrifting {
+        font-size: 1em;
+        padding: 15px;
+    }
+
+    .footer-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        padding: 10px 0;
+    }
+
+    .social-icons {
+        flex-direction: column;
+    }
+
+    .social-icons a {
+        margin: 5px 0;
+    }
+}
+
+.product-detail {
+    text-align: center;
+    padding: 20px;
+}
+
+.product-detail img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+.product-detail h1 {
+    color: #6a1b9a;
+    font-size: 2em;
+}
+
+.product-detail p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.product-buttons {
+    margin-top: 20px;
+}
+
+.product-buttons button {
+    background-color: #8e24aa;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 1em;
+}
+
+.product-buttons button:hover {
+    background-color: #6a1b9a;
+}
+/* Form Container Styles */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #4a148c;
+}
+
+/* Hide price group initially */
+#price-group {
+    display: none;
+}
+
+
+
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+}
+
+.remove-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+.cart-summary {
+    text-align: right;
+}
+
+.cart-summary p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout-btn:hover {
+    background-color: #2980b9;
+}

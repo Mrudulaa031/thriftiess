@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <p>WELCOME TO THRIFTIESS, HAPPY THRIFTING!!</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Thriftiess</a></li>
+                <li><a href="new.html">New</a></li>
+                <li><a href="women.html">Women</a></li>
+                <li><a href="men.html">Men</a></li>
+                <li><a href="sellanddonate.html">Sell And Donate</a></li>
+                <li><a href="user.html"><img src="images/user.jpg" alt="User Icon"></a></li>
+                <li><a href="cart.html"><img src="images/cart.jpg" alt="Cart Icon"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Items will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <p>Total: <span id="cart-total">₹0.00</span></p>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <img src="images/checkout.jpg" alt="Thrifting Image" style="max-width: 67%; height: auto;">
+    </div>
+
+    <script>
+        // JavaScript to handle query parameters and display cart items
+        document.addEventListener("DOMContentLoaded", function() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('name');
+            const price = parseFloat(params.get('price'));
+            
+            if (name && !isNaN(price)) {
+                addToCart(name, price);
+            }
+        });
+
+        function addToCart(name, price) {
+            const cartItems = document.getElementById('cart-items');
+            const existingItem = Array.from(cartItems.getElementsByTagName('tr')).find(row => row.cells[0].textContent === name);
+
+            if (existingItem) {
+                // Update existing item quantity
+                const quantityInput = existingItem.querySelector('.quantity-input');
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+                updateTotal();
+            } else {
+                // Add new item to cart
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${name}</td>
+                    <td><input type="number" value="1" min="1" class="quantity-input"></td>
+                    <td>₹${price.toFixed(2)}</td>
+                    <td>₹${price.toFixed(2)}</td>
+                    <td><button class="remove-btn">Remove</button></td>
+                `;
+                cartItems.appendChild(row);
+                updateTotal();
+            }
+
+            // Attach event listener to remove buttons
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.parentElement.parentElement;
+                    row.remove();
+                    updateTotal();
+                });
+            });
+
+            // Attach event listener to quantity inputs
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const quantity = parseInt(this.value) || 1;
+                    const priceCell = this.parentElement.previousElementSibling;
+                    const price = parseFloat(priceCell.textContent.replace('₹', ''));
+                    const totalCell = this.parentElement.nextElementSibling;
+                    totalCell.textContent = `₹${(quantity * price).toFixed(2)}`;
+                    updateTotal();
+                });
+            });
+        }
+
+        function updateTotal() {
+            const totalElement = document.getElementById('cart-total');
+            const rows = document.querySelectorAll('.cart-table tbody tr');
+            let total = 0;
+            rows.forEach(row => {
+                const totalCell = row.cells[3];
+                total += parseFloat(totalCell.textContent.replace('₹', ''));
+            });
+            totalElement.textContent = `₹${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
